@@ -1,0 +1,3 @@
+type Formulario = {
+  ciudad: string;
+};
