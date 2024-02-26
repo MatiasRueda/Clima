@@ -2,9 +2,13 @@ import { AntDesign } from "@expo/vector-icons";
 import { useForm, Controller } from "react-hook-form";
 import { TextInput, View, Text, StyleSheet } from "react-native";
 import { useEstadoContext } from "../../context/EstadoContext";
+import { useCiudadContext } from "../../context/ClimaContext";
+import { london } from "../../auxiliar/ejemplo";
+import celcius from "../../auxiliar/celcius";
 
 export default function SFBusqueda(): JSX.Element {
   const estado = useEstadoContext();
+  const ciudad = useCiudadContext();
   const {
     control,
     handleSubmit,
@@ -20,7 +24,18 @@ export default function SFBusqueda(): JSX.Element {
     const segundos: number = 3;
     estado.cambiarCargando();
     await new Promise((r) => setTimeout(r, segundos * 1000));
-
+    const respuesta = london;
+    const { feels_like, pressure, humidity, ...temperaturas } = respuesta.main;
+    const nuevasTemperaturas = Object.fromEntries(
+      Object.entries(temperaturas).map(([temp, valor]) => [
+        temp,
+        celcius(valor),
+      ])
+    );
+    ciudad.agregarCiudad({
+      ...respuesta,
+      main: { ...respuesta.main, ...nuevasTemperaturas },
+    });
     estado.cambiarCargando();
   };
 

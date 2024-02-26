@@ -1,12 +1,15 @@
 import SMensaje from "./src/components/smart/SMensaje";
+import SPagina from "./src/components/smart/SPagina";
+import CiudadContext from "./src/context/ClimaContext";
 import EstadoContext from "./src/context/EstadoContext";
-import Inicio from "./src/page/Inicio";
 
 export default function App() {
   return (
-    <EstadoContext>
-      <Inicio />
-      <SMensaje />
-    </EstadoContext>
+    <CiudadContext>
+      <EstadoContext>
+        <SPagina />
+        <SMensaje />
+      </EstadoContext>
+    </CiudadContext>
   );
 }

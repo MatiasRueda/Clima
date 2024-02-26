@@ -1,13 +1,13 @@
-import { View, StyleSheet } from "react-native";
-import DTitulo from "../components/dumb/DTitulo";
-import SFBusqueda from "../components/smart/SFBusqueda";
 import Constants from "expo-constants";
+import { View, StyleSheet } from "react-native";
+import SCiudad from "../components/smart/SCiudad";
+import SVolver from "../components/smart/SVolver";
 
-export default function Inicio(): JSX.Element {
+export default function Clima(): JSX.Element {
   return (
     <View style={estilos.container}>
-      <DTitulo />
-      <SFBusqueda></SFBusqueda>
+      <SVolver></SVolver>
+      <SCiudad></SCiudad>
     </View>
   );
 }
