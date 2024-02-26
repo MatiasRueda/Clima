@@ -8,7 +8,6 @@ export default function Inicio(): JSX.Element {
     <View style={estilos.container}>
       <DTitulo />
       <SFBusqueda></SFBusqueda>
-      <ActivityIndicator size={50} color={"#6666ff"} />
     </View>
   );
 }

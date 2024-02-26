@@ -1,8 +1,10 @@
 import { AntDesign } from "@expo/vector-icons";
 import { useForm, Controller } from "react-hook-form";
 import { TextInput, View, Text, StyleSheet } from "react-native";
+import { useEstadoContext } from "../../context/EstadoContext";
 
 export default function SFBusqueda(): JSX.Element {
+  const estado = useEstadoContext();
   const {
     control,
     handleSubmit,
@@ -14,8 +16,12 @@ export default function SFBusqueda(): JSX.Element {
     },
   });
 
-  const onSubmit = async (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: { ciudad: string }) => {
+    const segundos: number = 3;
+    estado.cambiarCargando();
+    await new Promise((r) => setTimeout(r, segundos * 1000));
+
+    estado.cambiarCargando();
   };
 
   return (
@@ -66,7 +72,7 @@ const estilos = StyleSheet.create({
   },
   input: {
     height: 30,
-    width: 200,
+    width: 250,
     fontSize: 12,
     paddingLeft: 3,
     marginRight: 3,
@@ -76,7 +82,7 @@ const estilos = StyleSheet.create({
   },
   error: {
     height: 40,
-    width: 200,
+    width: 250,
     textAlign: "center",
   },
   compartir: {
