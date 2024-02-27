@@ -6,10 +6,16 @@ export default function DInfoClave({ ...rest }: CiudadClima): JSX.Element {
     <View style={estilos.contenedor}>
       <Text style={[estilos.texto, estilos.color]}>{rest.name}</Text>
       <Text style={[estilos.grados, estilos.color]}>{rest.main.temp}°</Text>
-      <Text>{rest.weather[0].description}</Text>
+      <Text style={[estilos.color, estilos.textoDescripcion]}>
+        {rest.weather[0].description}
+      </Text>
       <View style={estilos.maxMin}>
-        <Text>Min: {rest.main.temp_min}°</Text>
-        <Text>Max: {rest.main.temp_max}°</Text>
+        <Text style={[estilos.color, estilos.textoSecundario]}>
+          Min: {rest.main.temp_min}°
+        </Text>
+        <Text style={[estilos.color, estilos.textoSecundario]}>
+          Max: {rest.main.temp_max}°
+        </Text>
       </View>
     </View>
   );
@@ -23,7 +29,7 @@ const estilos = StyleSheet.create({
   },
 
   maxMin: {
-    width: 150,
+    width: 250,
     flexDirection: "row",
     justifyContent: "space-around",
   },
@@ -31,7 +37,14 @@ const estilos = StyleSheet.create({
     color: "#ffff",
   },
   texto: {
-    fontSize: 35,
+    fontSize: 45,
+  },
+
+  textoDescripcion: {
+    fontSize: 25,
+  },
+  textoSecundario: {
+    fontSize: 20,
   },
   grados: {
     fontSize: 50,

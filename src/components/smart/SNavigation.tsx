@@ -1,8 +1,6 @@
-import { Fragment } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer, TabRouter } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import Inicio from "../../screen/Inicio";
-import Clima from "../../screen/Clima";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import SStackClima from "./SStackClima";
@@ -14,7 +12,18 @@ export default function SNavigation(): JSX.Element {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Inicio"
-        screenOptions={{ headerShown: false }}
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            height: 70,
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          tabBarItemStyle: {
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        }}
       >
         <Tab.Screen
           name="Inicio"
