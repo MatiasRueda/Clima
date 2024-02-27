@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useCiudadContext } from "../../context/ClimaContext";
+import { useCiudadContext } from "../../context/CiudadContext";
 import Clima from "../../page/Clima";
 import Inicio from "../../page/Inicio";
 

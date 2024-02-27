@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useCiudadContext } from "../../context/ClimaContext";
+import { useCiudadContext } from "../../context/CiudadContext";
 
 export default function SVolver(): JSX.Element {
   const clima = useCiudadContext();
@@ -14,14 +14,18 @@ export default function SVolver(): JSX.Element {
 
 const estilos = StyleSheet.create({
   contenedor: {
+    marginTop: 30,
     height: 50,
     width: "90%",
-    backgroundColor: "red",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
   },
 
   press: {
-    width: 30,
+    height: "100%",
+    width: 60,
+    backgroundColor: "yellow",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

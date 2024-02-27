@@ -18,6 +18,6 @@ const estilos = StyleSheet.create({
     flex: 1,
     backgroundColor: "#b2b2ff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
 });
