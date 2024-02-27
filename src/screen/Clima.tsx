@@ -4,7 +4,7 @@ import SCiudad from "../components/smart/SCiudad";
 export default function Clima(): JSX.Element {
   return (
     <View style={estilos.container}>
-      <SCiudad></SCiudad>
+      <SCiudad />
     </View>
   );
 }
