@@ -13,7 +13,7 @@ const estilos = StyleSheet.create({
     height: "100%",
     width: "100%",
     position: "absolute",
-    backgroundColor: "rgba(52, 52, 52, 0.9)",
+    backgroundColor: "rgba(52, 52, 52, 0.99)",
     alignItems: "center",
     justifyContent: "center",
   },

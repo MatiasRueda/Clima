@@ -6,10 +6,12 @@ import { useCiudadContext } from "../../context/CiudadContext";
 import { london } from "../../auxiliar/ejemplo";
 import celcius from "../../auxiliar/celcius";
 import { CiudadClima } from "../../types/types";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SFBusqueda(): JSX.Element {
   const estado = useEstadoContext();
   const ciudad = useCiudadContext();
+  const navigate = useNavigation();
   const {
     control,
     handleSubmit,
@@ -28,6 +30,7 @@ export default function SFBusqueda(): JSX.Element {
     const respuesta = london;
     const ciudadCelcius: CiudadClima = celcius(respuesta);
     ciudad.agregarCiudad(ciudadCelcius);
+    navigate.navigate("Ciudad" as never);
     estado.cambiarCargando();
   };
 

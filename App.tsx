@@ -1,5 +1,5 @@
 import SMensaje from "./src/components/smart/SMensaje";
-import SPagina from "./src/components/smart/SPagina";
+import SNavigation from "./src/components/smart/SNavigation";
 import CiudadContext from "./src/context/CiudadContext";
 import EstadoContext from "./src/context/EstadoContext";
 
@@ -7,7 +7,7 @@ export default function App() {
   return (
     <CiudadContext>
       <EstadoContext>
-        <SPagina />
+        <SNavigation />
         <SMensaje />
       </EstadoContext>
     </CiudadContext>

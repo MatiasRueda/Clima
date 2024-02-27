@@ -1,13 +1,11 @@
 import { View, StyleSheet } from "react-native";
 import DTitulo from "../components/dumb/DTitulo";
-import SFBusqueda from "../components/smart/SFBusqueda";
 import Constants from "expo-constants";
 
 export default function Inicio(): JSX.Element {
   return (
     <View style={estilos.container}>
       <DTitulo />
-      <SFBusqueda></SFBusqueda>
     </View>
   );
 }
