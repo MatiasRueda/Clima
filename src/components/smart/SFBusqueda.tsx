@@ -24,7 +24,7 @@ export default function SFBusqueda(): JSX.Element {
   });
 
   const onSubmit = async (data: { nombre: string }) => {
-    const segundos: number = 3;
+    const segundos: number = 1;
     estado.cambiarCargando();
     await new Promise((r) => setTimeout(r, segundos * 1000));
     const respuesta = london;

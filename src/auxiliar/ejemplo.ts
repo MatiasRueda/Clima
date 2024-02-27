@@ -8,7 +8,7 @@ const url: string =
 
 export const london: CiudadClima = {
   coord: { lon: -0.1276, lat: 51.5073 },
-  weather: [{ id: 804, main: "Clouds", description: "nubes", icon: "04n" }],
+  weather: [{ id: 804, main: "Clouds", description: "nubes", icon: "50d" }],
   base: "stations",
   main: {
     temp: 279.99,

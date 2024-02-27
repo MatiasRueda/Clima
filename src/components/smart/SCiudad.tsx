@@ -1,15 +1,16 @@
 import { View, Image, StyleSheet } from "react-native";
 import { useCiudadContext } from "../../context/CiudadContext";
 import DInfoClave from "../dumb/DInfoClave";
-import Nube from "../../../assets/clima/04n.svg";
+
 import DInfoAdicional from "../dumb/DInfoAdicional";
+import SImagen from "./SImagen";
 
 export default function SCiudad(): JSX.Element {
   const clima = useCiudadContext();
 
   return (
     <View style={estilos.container}>
-      <Nube width={180} height={180} />
+      <SImagen icono={clima.ciudad!.weather[0].icon} />
       <DInfoClave {...clima.ciudad!} />
       <DInfoAdicional {...clima.ciudad!} />
     </View>

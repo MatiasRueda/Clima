@@ -31,7 +31,7 @@ const estilos = StyleSheet.create({
   contenedor: {
     height: 200,
     width: 350,
-    marginTop: 20,
+    marginTop: 50,
     justifyContent: "flex-start",
     backgroundColor: "#8b8bb9",
     borderColor: "#00000",

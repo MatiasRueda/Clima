@@ -15,13 +15,8 @@ export default function SNavigation(): JSX.Element {
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            height: 70,
-            alignItems: "center",
-            justifyContent: "center",
-          },
-          tabBarItemStyle: {
-            alignItems: "center",
-            justifyContent: "center",
+            height: 65,
+            backgroundColor: "#8b8bb9",
           },
         }}
       >
@@ -29,6 +24,7 @@ export default function SNavigation(): JSX.Element {
           name="Inicio"
           component={Inicio}
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => {
               return (
                 <MaterialCommunityIcons name="home" size={24} color="black" />
@@ -40,6 +36,7 @@ export default function SNavigation(): JSX.Element {
           name="Buscar"
           component={SStackClima}
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => {
               return <Feather name="search" size={24} color="black" />;
             },
