@@ -1,4 +1,3 @@
-import { View, Image, StyleSheet } from "react-native";
 import { useCiudadContext } from "../../context/CiudadContext";
 
 import DCiudad from "../dumb/DCiudad";
