@@ -25,9 +25,13 @@ export default function SNavigation(): JSX.Element {
           component={Inicio}
           options={{
             tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => {
+            tabBarIcon: ({ focused, color, size }) => {
               return (
-                <MaterialCommunityIcons name="home" size={24} color="black" />
+                <MaterialCommunityIcons
+                  name="home"
+                  size={24}
+                  color={focused ? "white" : "black"}
+                />
               );
             },
           }}
@@ -37,8 +41,14 @@ export default function SNavigation(): JSX.Element {
           component={SStackClima}
           options={{
             tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => {
-              return <Feather name="search" size={24} color="black" />;
+            tabBarIcon: ({ focused, color, size }) => {
+              return (
+                <Feather
+                  name="search"
+                  size={24}
+                  color={focused ? "white" : "black"}
+                />
+              );
             },
           }}
         />

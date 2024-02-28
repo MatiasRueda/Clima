@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import SCiudad from "../components/smart/SCiudad";
 import { LinearGradient } from "expo-linear-gradient";
+import Constants from "expo-constants";
 import color from "../auxiliar/color";
 
 export default function Clima(): JSX.Element {
@@ -18,6 +19,7 @@ export default function Clima(): JSX.Element {
 const estilos = StyleSheet.create({
   contenedor: {
     flex: 1,
+    paddingTop: Constants.statusBarHeight,
     alignItems: "center",
     justifyContent: "flex-start",
   },

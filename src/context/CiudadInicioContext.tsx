@@ -5,7 +5,7 @@ import celcius from "../auxiliar/celcius";
 
 type UseCiudadInicioContext = {
   ciudad?: CiudadClima;
-  agregarCiudad: () => Promise<void>;
+  agregarCiudad: (ciudad: CiudadClima) => Promise<void>;
 };
 
 const Ciudad = createContext<undefined | UseCiudadInicioContext>(undefined);
@@ -20,10 +20,8 @@ export default function CiudadInicioContext(props: {
   const [ciudad, setCiudad] = useState<CiudadClima>();
   const ciudadInicio = "BuenosAires";
 
-  const agregarCiudad = async (): Promise<void> => {
-    const resultado = buenosAires;
-    const ciudadCelcius: CiudadClima = celcius(buenosAires);
-    setCiudad(ciudadCelcius);
+  const agregarCiudad = async (ciudad: CiudadClima): Promise<void> => {
+    setCiudad(ciudad);
   };
 
   return (

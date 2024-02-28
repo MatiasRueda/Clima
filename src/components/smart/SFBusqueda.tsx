@@ -7,6 +7,8 @@ import { london } from "../../auxiliar/ejemplo";
 import celcius from "../../auxiliar/celcius";
 import { CiudadClima } from "../../types/types";
 import { useNavigation } from "@react-navigation/native";
+import esError from "../../auxiliar/buscarCiudad";
+import buscarCiudad from "../../auxiliar/buscarCiudad";
 
 export default function SFBusqueda(): JSX.Element {
   const estado = useEstadoContext();
@@ -27,8 +29,13 @@ export default function SFBusqueda(): JSX.Element {
     const segundos: number = 1;
     estado.cambiarCargando();
     await new Promise((r) => setTimeout(r, segundos * 1000));
-    const respuesta = london;
-    const ciudadCelcius: CiudadClima = celcius(respuesta);
+    const respuesta = await buscarCiudad(data.nombre.split(" ").join(""));
+    if (!respuesta) {
+      estado.agregarMensajeError("Ocurrio un error");
+      estado.cambiarCargando();
+      return;
+    }
+    const ciudadCelcius: CiudadClima = celcius(respuesta as CiudadClima);
     ciudad.agregarCiudad(ciudadCelcius);
     navigate.navigate("Ciudad" as never);
     estado.cambiarCargando();
@@ -45,13 +52,13 @@ export default function SFBusqueda(): JSX.Element {
           <View style={estilos.contInput}>
             <TextInput
               style={estilos.input}
-              placeholder="Ingrese una ciudad"
+              placeholder="Busca"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
             />
             {errors.nombre && (
-              <Text style={estilos.error}>
+              <Text style={[estilos.error, estilos.color]}>
                 Es necesario ingresar una ciudad.
               </Text>
             )}
@@ -61,7 +68,7 @@ export default function SFBusqueda(): JSX.Element {
       />
       <AntDesign
         name="search1"
-        size={30}
+        size={40}
         style={estilos.compartir}
         color="black"
         onPress={handleSubmit(onSubmit)}
@@ -77,14 +84,14 @@ const estilos = StyleSheet.create({
     justifyContent: "center",
   },
   contInput: {
-    height: 70,
+    height: 80,
     justifyContent: "flex-start",
   },
   input: {
-    height: 30,
+    height: 40,
     width: 250,
     fontSize: 12,
-    paddingLeft: 3,
+    paddingLeft: 10,
     marginRight: 3,
     alignItems: "center",
     justifyContent: "center",
@@ -95,8 +102,12 @@ const estilos = StyleSheet.create({
     width: 250,
     textAlign: "center",
   },
+
+  color: {
+    color: "#ffff",
+  },
   compartir: {
-    height: 30,
+    height: 40,
     backgroundColor: "#ffff",
   },
 });

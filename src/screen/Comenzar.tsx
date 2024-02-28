@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import color from "../auxiliar/color";
 import Constants from "expo-constants";
 import SComenzar from "../components/smart/SComenzar";
-import Logo from "../../assets/clima/weather.svg";
 
 export default function Comenzar(): JSX.Element {
   return (
@@ -29,7 +28,7 @@ export default function Comenzar(): JSX.Element {
 const estilos = StyleSheet.create({
   contenedor: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     alignItems: "center",
     justifyContent: "space-around",
   },

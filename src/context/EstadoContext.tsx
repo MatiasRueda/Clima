@@ -2,10 +2,11 @@ import { ReactNode, createContext, useContext, useState } from "react";
 
 type UseEstadoContext = {
   cargando: boolean;
-  error: boolean;
+  error?: string;
   exito: boolean;
   cambiarCargando: () => void;
-  cambiarError: () => void;
+  agregarMensajeError: (mensaje: string) => void;
+  sacarError: () => void;
   cambiarExito: () => void;
 };
 
@@ -19,17 +20,20 @@ export default function EstadoContext(props: {
   children: ReactNode;
 }): JSX.Element {
   const [cargando, setCargando] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string>();
   const [exito, setExito] = useState<boolean>(false);
 
   const cambiarCargando = () => {
     setCargando((prev) => !prev);
   };
 
-  const cambiarError = () => {
-    setError((prev) => !prev);
+  const agregarMensajeError = (mensaje: string) => {
+    setError(mensaje);
   };
 
+  const sacarError = () => {
+    setError(undefined);
+  };
   const cambiarExito = () => {
     setExito((prev) => !prev);
   };
@@ -39,7 +43,8 @@ export default function EstadoContext(props: {
     error,
     exito,
     cambiarCargando,
-    cambiarError,
+    agregarMensajeError,
+    sacarError,
     cambiarExito,
   };
 

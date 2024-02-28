@@ -1,8 +1,9 @@
-export type Cordenada = {
+export type Coordenada = {
   name: string;
   lat: number;
   lon: number;
   country: string;
+  cod?: number;
 };
 
 export type CiudadClima = {
@@ -31,4 +32,5 @@ export type CiudadClima = {
   timezone: number;
   id: number;
   name: string;
+  cod: number;
 };

@@ -21,7 +21,7 @@ export default function Inicio(): JSX.Element {
 
 const estilos = StyleSheet.create({
   contenedor: {
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

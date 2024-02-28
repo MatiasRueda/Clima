@@ -15,7 +15,7 @@ import TruenosD from "../../../assets/clima/11d.svg";
 import TruenosN from "../../../assets/clima/11n.svg";
 import NieveD from "../../../assets/clima/13d.svg";
 import NieveN from "../../../assets/clima/13n.svg";
-import { Image } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { SvgProps } from "react-native-svg";
 
 function obtenerImagen(icono: string): React.FC<SvgProps> {
@@ -48,10 +48,13 @@ export default function SImagen(props: { icono: string }): JSX.Element {
       ) : (
         <Image
           source={require("../../../assets/clima/50d.png")}
-          width={180}
-          height={180}
+          style={estilos.imagen}
         />
       )}
     </Fragment>
   );
 }
+
+const estilos = StyleSheet.create({
+  imagen: { height: 180, width: 180 },
+});

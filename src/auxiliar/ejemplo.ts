@@ -1,4 +1,4 @@
-import { CiudadClima, Cordenada } from "../types/types";
+import { CiudadClima, Coordenada } from "../types/types";
 
 //ELIMINAR
 
@@ -8,8 +8,14 @@ const url: string =
 const urlCord: string =
   "http://api.openweathermap.org/geo/1.0/direct?q=BuenosAires&appid=1df2aa84a49c32ed733031f8909d089a";
 
-const cordenadas: Cordenada[] = [
-  { name: "Buenos Aires", lat: -34.6075682, lon: -58.4370894, country: "AR" },
+export const coordenadas: Coordenada[] = [
+  {
+    name: "Buenos Aires",
+    lat: -34.6075682,
+    lon: -58.4370894,
+    country: "AR",
+    cod: 200,
+  },
 ];
 
 export const london: CiudadClima = {
@@ -30,6 +36,7 @@ export const london: CiudadClima = {
   timezone: 0,
   id: 2643743,
   name: "London",
+  cod: 400,
 };
 
 export const buenosAires: CiudadClima = {
@@ -52,6 +59,7 @@ export const buenosAires: CiudadClima = {
   timezone: -10800,
   id: 3427458,
   name: "Villa Crespo",
+  cod: 200,
 };
 
 const noche = ["#4c669f", "#3b5998", "#192f6a"];

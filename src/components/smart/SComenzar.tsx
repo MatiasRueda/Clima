@@ -1,6 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useCiudadInicioContext } from "../../context/CiudadInicioContext";
 import { useEstadoContext } from "../../context/EstadoContext";
+import { CiudadClima } from "../../types/types";
+import celcius from "../../auxiliar/celcius";
+import buscarCiudad from "../../auxiliar/buscarCiudad";
 
 export default function SComenzar(): JSX.Element {
   const ciudadInicio = useCiudadInicioContext();
@@ -8,7 +11,14 @@ export default function SComenzar(): JSX.Element {
 
   const comenzar = async (): Promise<void> => {
     estado.cambiarCargando();
-    await ciudadInicio.agregarCiudad();
+    const respuesta = await buscarCiudad();
+    if (!respuesta) {
+      estado.agregarMensajeError("Ocurrio un error");
+      estado.cambiarCargando();
+      return;
+    }
+    const ciudadCelcius: CiudadClima = celcius(respuesta as CiudadClima);
+    await ciudadInicio.agregarCiudad(ciudadCelcius);
     await new Promise((r) => setTimeout(r, 3000));
     estado.cambiarCargando();
   };
@@ -33,6 +43,7 @@ const estilos = StyleSheet.create({
   },
 
   texto: {
+    fontSize: 20,
     color: "#ffff",
   },
 });

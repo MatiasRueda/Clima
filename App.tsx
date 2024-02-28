@@ -1,5 +1,5 @@
 import React from "react";
-import SMensaje from "./src/components/smart/SMensaje";
+import SEstado from "./src/components/smart/SEstado";
 import SScreens from "./src/components/smart/SScreens";
 import CiudadInicioContext from "./src/context/CiudadInicioContext";
 import CiudadContext from "./src/context/CiudadContext";
@@ -11,7 +11,7 @@ export default function App() {
       <CiudadContext>
         <EstadoContext>
           <SScreens />
-          <SMensaje />
+          <SEstado />
         </EstadoContext>
       </CiudadContext>
     </CiudadInicioContext>
