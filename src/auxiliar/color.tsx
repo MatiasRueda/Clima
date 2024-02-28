@@ -1,4 +1,4 @@
-const amanecer: string[] = ["#FDC830", "#F37335"];
+const amanecer: string[] = ["#4776E6", "#8E54E9"];
 const dia: string[] = ["#9CECFB", "#65C7F7", "#0052D4"];
 const atardecer: string[] = ["#7474BF", "#348AC7"];
 const noche: string[] = ["#4C669f", "#3B5998", "#192F6A"];

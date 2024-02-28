@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { CiudadClima } from "../types/types";
 import { buenosAires } from "../auxiliar/ejemplo";
+import celcius from "../auxiliar/celcius";
 
 type UseCiudadInicioContext = {
   ciudad?: CiudadClima;
@@ -21,7 +22,8 @@ export default function CiudadInicioContext(props: {
 
   const agregarCiudad = async (): Promise<void> => {
     const resultado = buenosAires;
-    setCiudad(resultado);
+    const ciudadCelcius: CiudadClima = celcius(buenosAires);
+    setCiudad(ciudadCelcius);
   };
 
   return (

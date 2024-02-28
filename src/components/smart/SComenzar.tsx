@@ -15,7 +15,7 @@ export default function SComenzar(): JSX.Element {
 
   return (
     <TouchableOpacity style={estilos.contenedor} onPress={comenzar}>
-      <Text>Holaaa</Text>
+      <Text style={estilos.texto}>Comenzar</Text>
     </TouchableOpacity>
   );
 }
@@ -24,8 +24,15 @@ const estilos = StyleSheet.create({
   contenedor: {
     height: 75,
     width: 300,
-    backgroundColor: "red",
+    borderRadius: 13,
+    borderWidth: 2,
+    borderColor: "#00000",
+    backgroundColor: "#4c4cdb",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  texto: {
+    color: "#ffff",
   },
 });
