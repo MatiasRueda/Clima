@@ -1,20 +1,28 @@
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import DTitulo from "../components/dumb/DTitulo";
 import Constants from "expo-constants";
+import { LinearGradient } from "expo-linear-gradient";
+import color from "../auxiliar/color";
+import { useCiudadInicioContext } from "../context/CiudadInicioContext";
+import DCiudad from "../components/dumb/DCiudad";
 
 export default function Inicio(): JSX.Element {
+  const ciudadInicio = useCiudadInicioContext();
   return (
-    <View style={estilos.container}>
-      <DTitulo />
-    </View>
+    <LinearGradient
+      colors={color()}
+      style={estilos.contenedor}
+      start={{ x: 0.9, y: 0 }}
+    >
+      <DCiudad {...ciudadInicio.ciudad!} />
+    </LinearGradient>
   );
 }
 
 const estilos = StyleSheet.create({
-  container: {
+  contenedor: {
     marginTop: Constants.statusBarHeight,
     flex: 1,
-    backgroundColor: "#b2b2ff",
     alignItems: "center",
     justifyContent: "center",
   },

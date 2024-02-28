@@ -1,3 +1,10 @@
+export type Cordenada = {
+  name: string;
+  lat: number;
+  lon: number;
+  country: string;
+};
+
 export type CiudadClima = {
   coord: {
     lon: number;
@@ -19,7 +26,7 @@ export type CiudadClima = {
     humidity: number;
   };
   visibility: number; // metros
-  wind: { speed: number; deg: number; gust: number };
+  wind: { speed: number; deg: number; gust?: number };
   clouds: { all: number };
   timezone: number;
   id: number;

@@ -1,24 +1,26 @@
-import { StyleSheet } from "react-native";
-import Constants from "expo-constants";
-import SFBusqueda from "../components/smart/SFBusqueda";
 import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import color from "../auxiliar/color";
+import Constants from "expo-constants";
+import SComenzar from "../components/smart/SComenzar";
 
-export default function Busqueda(): JSX.Element {
+export default function Comenzar(): JSX.Element {
   return (
     <LinearGradient
       colors={color()}
       style={estilos.contenedor}
       start={{ x: 0.9, y: 0 }}
     >
-      <SFBusqueda />
+      <Text>Mi Clima</Text>
+      <SComenzar />
     </LinearGradient>
   );
 }
+
 const estilos = StyleSheet.create({
   contenedor: {
-    marginTop: Constants.statusBarHeight,
     flex: 1,
+    marginTop: Constants.statusBarHeight,
     alignItems: "center",
     justifyContent: "center",
   },

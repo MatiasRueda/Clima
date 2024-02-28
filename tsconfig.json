@@ -3,5 +3,10 @@
   "compilerOptions": {
     "strict": true
   },
-  "include": ["src/components", "declarations.d.ts"]
+  "include": [
+    "src/components",
+    "src/context",
+    "src/screen",
+    "declarations.d.ts"
+  ]
 }
