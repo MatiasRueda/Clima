@@ -1,7 +1,7 @@
 import { CiudadClima, Coordenada } from "../types/types";
 
 const chacarita: Coordenada[] = [
-  { name: "Chacarita", lat: -34.5880107, lon: -58.4541562, country: "AR" },
+  { name: "Chacarita", lat: -34.5880107, lon: -58.4541562 },
 ];
 
 function cumpleCondi(arg: { cod?: number } | Array<any>): boolean {
@@ -14,7 +14,7 @@ function cumpleCondi(arg: { cod?: number } | Array<any>): boolean {
 async function buscarCoordenadas(ciudad?: string): Promise<Coordenada[]> {
   if (!ciudad) return chacarita;
   const respuesta = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad}&appid=${process.env.EXPO_PUBLIC_CLIMA_API_KEY}`
+    `https://geocode.maps.co/search?q=${ciudad}&api_key=${process.env.EXPO_PUBLIC_LON_LAT_API_KEY}`
   );
   const coordenadas: Coordenada[] = await respuesta.json();
   if (!cumpleCondi(coordenadas)) return [];

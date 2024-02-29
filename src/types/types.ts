@@ -1,8 +1,8 @@
 export type Coordenada = {
   name: string;
+  display_name?: string;
   lat: number;
   lon: number;
-  country: string;
   cod?: number;
 };
 
