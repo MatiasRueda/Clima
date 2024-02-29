@@ -25,7 +25,7 @@ export default async function buscarCiudad(
   ciudad?: string
 ): Promise<boolean | CiudadClima> {
   const coordenada: Coordenada[] = await buscarCoordenadas(ciudad);
-  if (!coordenada) return false;
+  if (!coordenada.length) return false;
   const respuesta = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${coordenada[0].lat}&lon=${coordenada[0].lon}&lang=es&appid=${process.env.EXPO_PUBLIC_CLIMA_API_KEY}`
   );

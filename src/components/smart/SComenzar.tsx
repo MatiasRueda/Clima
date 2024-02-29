@@ -4,6 +4,7 @@ import { useEstadoContext } from "../../context/EstadoContext";
 import { CiudadClima } from "../../types/types";
 import celcius from "../../auxiliar/celcius";
 import buscarCiudad from "../../auxiliar/buscarCiudad";
+import { MENSAJE_ERROR } from "../../auxiliar/mensajes";
 
 export default function SComenzar(): JSX.Element {
   const ciudadInicio = useCiudadInicioContext();
@@ -13,7 +14,7 @@ export default function SComenzar(): JSX.Element {
     estado.cambiarCargando();
     const respuesta = await buscarCiudad();
     if (!respuesta) {
-      estado.agregarMensajeError("Ocurrio un error");
+      estado.agregarMensajeError(MENSAJE_ERROR);
       estado.cambiarCargando();
       return;
     }

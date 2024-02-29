@@ -3,12 +3,11 @@ import { useForm, Controller } from "react-hook-form";
 import { TextInput, View, Text, StyleSheet } from "react-native";
 import { useEstadoContext } from "../../context/EstadoContext";
 import { useCiudadContext } from "../../context/CiudadContext";
-import { london } from "../../auxiliar/ejemplo";
 import celcius from "../../auxiliar/celcius";
 import { CiudadClima } from "../../types/types";
 import { useNavigation } from "@react-navigation/native";
-import esError from "../../auxiliar/buscarCiudad";
 import buscarCiudad from "../../auxiliar/buscarCiudad";
+import { MENSAJE_ERROR } from "../../auxiliar/mensajes";
 
 export default function SFBusqueda(): JSX.Element {
   const estado = useEstadoContext();
@@ -26,12 +25,10 @@ export default function SFBusqueda(): JSX.Element {
   });
 
   const onSubmit = async (data: { nombre: string }) => {
-    const segundos: number = 1;
     estado.cambiarCargando();
-    await new Promise((r) => setTimeout(r, segundos * 1000));
     const respuesta = await buscarCiudad(data.nombre.split(" ").join(""));
     if (!respuesta) {
-      estado.agregarMensajeError("Ocurrio un error");
+      estado.agregarMensajeError(MENSAJE_ERROR);
       estado.cambiarCargando();
       return;
     }
@@ -52,7 +49,7 @@ export default function SFBusqueda(): JSX.Element {
           <View style={estilos.contInput}>
             <TextInput
               style={estilos.input}
-              placeholder="Busca"
+              placeholder="Buscar"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
